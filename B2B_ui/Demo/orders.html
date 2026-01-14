@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Marketplace - Orders</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="dashboard.html">B2B Marketplace</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="marketplace.html" class="nav-link">Marketplace</a></li>
+                <li><a href="orders.html" class="nav-link active">Orders</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li><a href="posts.html" class="nav-link">Posts</a></li>
+                <li><a href="#" class="nav-link" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Orders</h1>
+                <p>Manage your orders and track their status</p>
+            </div>
+
+            <!-- Order Filters -->
+            <div class="order-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-status="all">All Orders</button>
+                    <button class="filter-tab" data-status="pending">Pending</button>
+                    <button class="filter-tab" data-status="confirmed">Confirmed</button>
+                    <button class="filter-tab" data-status="shipped">Shipped</button>
+                    <button class="filter-tab" data-status="delivered">Delivered</button>
+                </div>
+                
+                <div class="order-search">
+                    <input type="text" id="order-search" class="form-input" placeholder="Search orders...">
+                    <button class="btn btn-outline" id="search-orders">Search</button>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="orders-section">
+                <div class="table-container">
+                    <table class="data-table" id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product</th>
+                                <th>Seller/Buyer</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="no-orders" id="no-orders" style="display: none;">
+                    <div class="no-orders-content">
+                        <div class="no-orders-icon">📦</div>
+                        <h3>No orders found</h3>
+                        <p>You don't have any orders yet.</p>
+                        <a href="marketplace.html" class="btn btn-primary">Browse Products</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Order Details</h2>
+                <button class="modal-close" id="close-order-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="order-details">
+                <!-- Order details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="close-order-details">Close</button>
+                <button class="btn btn-primary" id="update-order-status" style="display: none;">Update Status</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Update Modal -->
+    <div class="modal" id="status-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Update Order Status</h2>
+                <button class="modal-close" id="close-status-modal">&times;</button>
+            </div>
+            <form class="modal-form" id="status-form">
+                <div class="form-group">
+                    <label for="new-status" class="form-label">New Status</label>
+                    <select id="new-status" name="status" class="form-select" required>
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status-notes" class="form-label">Notes (Optional)</label>
+                    <textarea id="status-notes" name="notes" class="form-textarea" rows="3" placeholder="Add any notes about this status update..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancel-status-update">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Status</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/orders.js"></script>
+</body>
+</html>

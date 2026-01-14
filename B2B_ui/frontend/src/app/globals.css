@@ -1,0 +1,287 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '../styles/tutorial.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Brand Theme Colors - One UI Inspired Minimalist Design */
+  
+  /* Primary Accent - Purple (for CTAs and active states) */
+  --color-brand-purple-50: #faf5ff;
+  --color-brand-purple-100: #f3e8ff;
+  --color-brand-purple-200: #e9d5ff;
+  --color-brand-purple-300: #d8b4fe;
+  --color-brand-purple-400: #c084fc;
+  --color-brand-purple-500: #a855f7;
+  --color-brand-purple-600: #9333ea;
+  --color-brand-purple-700: #7e22ce;
+  --color-brand-purple-800: #6b21a8;
+  --color-brand-purple-900: #581c87;
+  --color-brand-purple-950: #3b0764;
+  
+  /* Secondary Accent - Pink (for likes and emotional feedback) */
+  --color-brand-pink-50: #fdf2f8;
+  --color-brand-pink-100: #fce7f3;
+  --color-brand-pink-200: #fbcfe8;
+  --color-brand-pink-300: #f9a8d4;
+  --color-brand-pink-400: #f472b6;
+  --color-brand-pink-500: #ec4899;
+  --color-brand-pink-600: #db2777;
+  --color-brand-pink-700: #be185d;
+  --color-brand-pink-800: #9d174d;
+  --color-brand-pink-900: #831843;
+  
+  /* Neutral/Gray Scale - Foundation for surfaces and text */
+  --color-brand-white: #ffffff;
+  --color-brand-black: #000000;
+  
+  /* Light mode grays */
+  --color-brand-gray-50: #fafafa;
+  --color-brand-gray-100: #f5f5f5;
+  --color-brand-gray-200: #e5e5e5;
+  --color-brand-gray-300: #d4d4d4;
+  --color-brand-gray-400: #a3a3a3;
+  --color-brand-gray-500: #737373;
+  --color-brand-gray-600: #525252;
+  --color-brand-gray-700: #404040;
+  --color-brand-gray-800: #262626;
+  --color-brand-gray-900: #171717;
+  --color-brand-gray-950: #0a0a0a;
+  
+  /* Neutral scale for dark mode surfaces */
+  --color-brand-neutral-50: #fafafa;
+  --color-brand-neutral-100: #f5f5f5;
+  --color-brand-neutral-200: #e5e5e5;
+  --color-brand-neutral-300: #d4d4d4;
+  --color-brand-neutral-400: #a3a3a3;
+  --color-brand-neutral-500: #737373;
+  --color-brand-neutral-600: #525252;
+  --color-brand-neutral-700: #404040;
+  --color-brand-neutral-800: #262626;
+  --color-brand-neutral-900: #171717;
+  --color-brand-neutral-950: #0a0a0a;
+  
+  /* Semantic colors - minimal usage */
+  --color-brand-success-50: #f0fdf4;
+  --color-brand-success-400: #4ade80;
+  --color-brand-success-500: #22c55e;
+  --color-brand-success-600: #16a34a;
+  --color-brand-success-950: #052e16;
+  
+  --color-brand-error-50: #fef2f2;
+  --color-brand-error-400: #f87171;
+  --color-brand-error-500: #ef4444;
+  --color-brand-error-600: #dc2626;
+  --color-brand-error-950: #450a0a;
+  
+  --color-brand-warning-50: #fffbeb;
+  --color-brand-warning-400: #fbbf24;
+  --color-brand-warning-500: #f59e0b;
+  --color-brand-warning-600: #d97706;
+  --color-brand-warning-950: #431407;
+  
+  --color-brand-info-50: #eff6ff;
+  --color-brand-info-400: #60a5fa;
+  --color-brand-info-500: #3b82f6;
+  --color-brand-info-600: #2563eb;
+  --color-brand-info-950: #172554;
+}
+
+:root {
+  /* One UI Inspired - Light Mode: Clean, bright, with subtle grays */
+  --radius: 1rem; /* Increased for softer, more rounded corners */
+  
+  /* Backgrounds - Light, airy */
+  --background: oklch(0.99 0 0); /* Almost white, slight warmth */
+  --foreground: oklch(0.15 0 0); /* Near black for primary text */
+  
+  /* Cards - Subtle elevation with soft gray */
+  --card: oklch(1 0 0); /* Pure white for cards */
+  --card-foreground: oklch(0.15 0 0);
+  
+  /* Popovers */
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  
+  /* Primary - Purple accent for CTAs */
+  --primary: oklch(0.568 0.207 293.431); /* Purple 600 - #9333ea */
+  --primary-foreground: oklch(1 0 0); /* White text on purple */
+  
+  /* Secondary - Soft gray for secondary actions */
+  --secondary: oklch(0.961 0 0); /* Gray 100 */
+  --secondary-foreground: oklch(0.15 0 0);
+  
+  /* Muted - For less important UI elements */
+  --muted: oklch(0.961 0 0); /* Gray 100 */
+  --muted-foreground: oklch(0.525 0 0); /* Gray 500 for secondary text */
+  
+  /* Accent - Same as primary for consistency */
+  --accent: oklch(0.961 0 0);
+  --accent-foreground: oklch(0.15 0 0);
+  
+  /* Destructive - Error/danger states */
+  --destructive: oklch(0.628 0.258 29.234); /* Red 500 */
+  
+  /* Borders & Inputs - Subtle, clean */
+  --border: oklch(0.898 0 0); /* Gray 200 */
+  --input: oklch(0.898 0 0);
+  --ring: oklch(0.568 0.207 293.431); /* Purple for focus rings */
+  
+  /* Charts - Diverse but harmonious */
+  --chart-1: oklch(0.568 0.207 293.431); /* Purple */
+  --chart-2: oklch(0.694 0.190 330.262); /* Pink */
+  --chart-3: oklch(0.628 0.258 29.234); /* Red */
+  --chart-4: oklch(0.627 0.169 142.498); /* Green */
+  --chart-5: oklch(0.631 0.205 264.052); /* Blue */
+  
+  /* Sidebar - Clean and minimal */
+  --sidebar: oklch(1 0 0); /* White */
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.568 0.207 293.431); /* Purple accent */
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.961 0 0); /* Gray 100 */
+  --sidebar-accent-foreground: oklch(0.15 0 0);
+  --sidebar-border: oklch(0.898 0 0); /* Gray 200 */
+  --sidebar-ring: oklch(0.568 0.207 293.431);
+}
+
+.dark {
+  /* One UI Inspired - Dark Mode: Pure black foundation with neutral-900 surfaces */
+  
+  /* Backgrounds - Pure black for maximum contrast */
+  --background: oklch(0 0 0); /* Pure black #000000 */
+  --foreground: oklch(1 0 0); /* Pure white for primary text */
+  
+  /* Cards - Dark gray (neutral-900) for depth and separation */
+  --card: oklch(0.15 0 0); /* Neutral 900 - #171717 */
+  --card-foreground: oklch(1 0 0); /* White text on cards */
+  
+  /* Popovers */
+  --popover: oklch(0.15 0 0); /* Neutral 900 */
+  --popover-foreground: oklch(1 0 0);
+  
+  /* Primary - Purple accent for CTAs (same as light mode for consistency) */
+  --primary: oklch(0.568 0.207 293.431); /* Purple 600 - #9333ea */
+  --primary-foreground: oklch(1 0 0); /* White text on purple */
+  
+  /* Secondary - Subtle dark gray for secondary actions */
+  --secondary: oklch(0.2 0 0); /* Neutral 800 */
+  --secondary-foreground: oklch(1 0 0);
+  
+  /* Muted - For less important UI elements */
+  --muted: oklch(0.2 0 0); /* Neutral 800 */
+  --muted-foreground: oklch(0.525 0 0); /* Neutral 400 for secondary text */
+  
+  /* Accent - Slightly lighter than cards for hover states */
+  --accent: oklch(0.2 0 0); /* Neutral 800 */
+  --accent-foreground: oklch(1 0 0);
+  
+  /* Destructive - Error/danger states (slightly brighter for dark mode) */
+  --destructive: oklch(0.688 0.249 29.234); /* Red 400 */
+  
+  /* Borders & Inputs - Subtle, low contrast */
+  --border: oklch(0.2 0 0); /* Neutral 800 */
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.568 0.207 293.431); /* Purple for focus rings */
+  
+  /* Charts - Vibrant but harmonious for dark mode */
+  --chart-1: oklch(0.656 0.197 293.431); /* Purple 400 - brighter */
+  --chart-2: oklch(0.694 0.190 330.262); /* Pink 500 */
+  --chart-3: oklch(0.688 0.249 29.234); /* Red 400 */
+  --chart-4: oklch(0.697 0.169 142.498); /* Green 400 */
+  --chart-5: oklch(0.701 0.205 264.052); /* Blue 400 */
+  
+  /* Sidebar - Same as background for seamless integration */
+  --sidebar: oklch(0 0 0); /* Pure black */
+  --sidebar-foreground: oklch(1 0 0); /* White */
+  --sidebar-primary: oklch(0.568 0.207 293.431); /* Purple accent */
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.2 0 0); /* Neutral 800 */
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.2 0 0); /* Neutral 800 */
+  --sidebar-ring: oklch(0.568 0.207 293.431);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar styles for modal content */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #525252 #262626;
+  scroll-behavior: smooth;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #262626;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #525252;
+  border-radius: 6px;
+  border: 2px solid #262626;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #737373;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #a3a3a3;
+}
+
+/* Smooth scrolling for modal content */
+.modal-content {
+  scroll-behavior: smooth;
+}

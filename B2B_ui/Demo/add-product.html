@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Marketplace - Add Product</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="dashboard.html">B2B Marketplace</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="marketplace.html" class="nav-link">Marketplace</a></li>
+                <li><a href="orders.html" class="nav-link">Orders</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li><a href="posts.html" class="nav-link">Posts</a></li>
+                <li><a href="#" class="nav-link" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Add New Product</h1>
+                <p>Create a new product listing for your business</p>
+            </div>
+
+            <div class="product-form-layout">
+                <form class="product-form" id="add-product-form">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h2>Basic Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="product-name" class="form-label">Product Name *</label>
+                            <input type="text" id="product-name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-description" class="form-label">Product Description *</label>
+                            <textarea id="product-description" name="description" class="form-textarea" rows="4" required placeholder="Describe your product in detail..."></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-category" class="form-label">Category *</label>
+                                <select id="product-category" name="category" class="form-select" required>
+                                    <option value="">Select Category</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="machinery">Machinery</option>
+                                    <option value="materials">Materials</option>
+                                    <option value="services">Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-subcategory" class="form-label">Subcategory</label>
+                                <select id="product-subcategory" name="subcategory" class="form-select">
+                                    <option value="">Select Subcategory</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Product Images -->
+                    <div class="form-section">
+                        <h2>Product Images</h2>
+                        
+                        <div class="form-group">
+                            <label for="product-images" class="form-label">Upload Images</label>
+                            <input type="file" id="product-images" name="images" class="form-input" multiple accept="image/*">
+                            <p class="form-help">Upload up to 5 images. First image will be the main product image.</p>
+                        </div>
+                        
+                        <div class="image-preview" id="image-preview">
+                            <!-- Image previews will be shown here -->
+                        </div>
+                    </div>
+
+                    <!-- Specifications -->
+                    <div class="form-section">
+                        <h2>Product Specifications</h2>
+                        
+                        <div class="specifications-container" id="specifications-container">
+                            <div class="specification-row">
+                                <input type="text" name="specName[]" class="form-input" placeholder="Specification name">
+                                <input type="text" name="specValue[]" class="form-input" placeholder="Specification value">
+                                <button type="button" class="btn btn-outline btn-sm remove-spec">Remove</button>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="btn btn-outline" id="add-specification">Add Specification</button>
+                    </div>
+
+
+                    <!-- RFQ Information -->
+                    <div class="form-section">
+                        <h2>RFQ Information</h2>
+                        <p class="form-help">Create an RFQ for this product to attract buyers</p>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="create-rfq" name="createRFQ">
+                                <span class="checkmark"></span>
+                                Create RFQ for this product
+                            </label>
+                        </div>
+                        
+                        <div id="rfq-fields" style="display: none;">
+                            <!-- RFQ Contact Method -->
+                            <div class="form-group">
+                                <label class="form-label">RFQ Contact Method *</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="rfqContactMethod" value="email" checked>
+                                        <span class="radio-custom"></span>
+                                        Email Address
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="rfqContactMethod" value="pdf">
+                                        <span class="radio-custom"></span>
+                                        Upload PDF Document
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Email Address Field -->
+                            <div id="rfq-email-field" class="form-group">
+                                <label for="rfq-email" class="form-label">Email Address *</label>
+                                <input type="email" id="rfq-email" name="rfqEmail" class="form-input" placeholder="your.email@company.com">
+                            </div>
+                            
+                            <!-- PDF Upload Field -->
+                            <div id="rfq-pdf-field" class="form-group" style="display: none;">
+                                <label for="rfq-pdf" class="form-label">Upload PDF Document *</label>
+                                <input type="file" id="rfq-pdf" name="rfqPdf" class="form-input" accept=".pdf">
+                                <p class="form-help">Upload your detailed requirements document (PDF format only)</p>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rfq-quantity" class="form-label">Expected Quantity</label>
+                                <input type="number" id="rfq-quantity" name="rfqQuantity" class="form-input" min="1" value="1">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rfq-specifications" class="form-label">RFQ Specifications</label>
+                                <textarea id="rfq-specifications" name="rfqSpecifications" class="form-textarea" rows="3" placeholder="Additional specifications for the RFQ..."></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="rfq-min-budget" class="form-label">Minimum Budget</label>
+                                    <input type="number" id="rfq-min-budget" name="rfqMinBudget" class="form-input" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="rfq-max-budget" class="form-label">Maximum Budget</label>
+                                    <input type="number" id="rfq-max-budget" name="rfqMaxBudget" class="form-input" min="0" step="0.01">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rfq-deadline" class="form-label">RFQ Deadline</label>
+                                <input type="date" id="rfq-deadline" name="rfqDeadline" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rfq-location" class="form-label">Delivery Location</label>
+                                <input type="text" id="rfq-location" name="rfqLocation" class="form-input" placeholder="City, State/Country">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rfq-message" class="form-label">RFQ Message</label>
+                                <textarea id="rfq-message" name="rfqMessage" class="form-textarea" rows="2" placeholder="Additional message for buyers..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Status -->
+                    <div class="form-section">
+                        <h2>Product Status</h2>
+                        
+                        <div class="form-group">
+                            <label for="product-status" class="form-label">Status</label>
+                            <select id="product-status" name="status" class="form-select">
+                                <option value="draft">Draft</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="featured-product" name="featured">
+                                <span class="checkmark"></span>
+                                Feature this product
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="save-draft">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary">Publish Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/add-product.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+[
+  {
+    "id": "product-1",
+    "sellerId": "user-2",
+    "name": "Industrial Conveyor Belt",
+    "description": "High-quality industrial conveyor belt suitable for manufacturing and logistics operations. Made from durable rubber material with steel reinforcement.",
+    "category": "machinery",
+    "subcategory": "conveyors",
+    "status": "active",
+    "featured": true,
+    "images": ["assets/images/placeholder.svg"],
+    "specifications": {
+      "Material": "Rubber",
+      "Width": "500mm",
+      "Length": "10m",
+      "Load Capacity": "100kg/m",
+      "Temperature Range": "-20°C to +80°C",
+      "Tensile Strength": "15 N/mm"
+    },
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "product-2",
+    "sellerId": "user-2",
+    "name": "Steel Rods - Grade A",
+    "description": "Premium quality steel rods for construction and manufacturing applications. High tensile strength and excellent durability.",
+    "category": "materials",
+    "subcategory": "steel",
+    "status": "active",
+    "featured": false,
+    "images": ["assets/images/placeholder.svg"],
+    "specifications": {
+      "Grade": "A",
+      "Diameter": "12mm",
+      "Length": "6m",
+      "Tensile Strength": "400 MPa",
+      "Yield Strength": "250 MPa",
+      "Elongation": "20%"
+    },
+    "createdAt": "2024-01-10T14:20:00Z",
+    "updatedAt": "2024-01-10T14:20:00Z"
+  },
+  {
+    "id": "product-3",
+    "sellerId": "user-2",
+    "name": "LED Industrial Lighting",
+    "description": "Energy-efficient LED lighting solution for industrial and commercial spaces. Long lifespan and low maintenance requirements.",
+    "category": "electronics",
+    "subcategory": "lighting",
+    "status": "active",
+    "featured": true,
+    "images": ["assets/images/placeholder.svg"],
+    "specifications": {
+      "Power": "50W",
+      "Lumens": "5000lm",
+      "Color Temperature": "4000K",
+      "Lifespan": "50000 hours",
+      "IP Rating": "IP65",
+      "Voltage": "110-240V AC"
+    },
+    "createdAt": "2024-01-12T09:15:00Z",
+    "updatedAt": "2024-01-12T09:15:00Z"
+  },
+  {
+    "id": "product-4",
+    "sellerId": "user-2",
+    "name": "Hydraulic Pump System",
+    "description": "High-performance hydraulic pump system for heavy machinery and industrial applications. Reliable and efficient operation.",
+    "category": "machinery",
+    "subcategory": "hydraulics",
+    "status": "active",
+    "featured": false,
+    "images": ["assets/images/placeholder.svg"],
+    "specifications": {
+      "Flow Rate": "50 L/min",
+      "Pressure": "210 bar",
+      "Power": "15 kW",
+      "Efficiency": "85%",
+      "Noise Level": "< 70 dB"
+    },
+    "createdAt": "2024-01-08T16:45:00Z",
+    "updatedAt": "2024-01-08T16:45:00Z"
+  },
+  {
+    "id": "product-5",
+    "sellerId": "user-2",
+    "name": "Aluminum Sheets - 6061",
+    "description": "High-quality aluminum sheets in 6061 grade, perfect for aerospace, automotive, and general manufacturing applications.",
+    "category": "materials",
+    "subcategory": "aluminum",
+    "status": "active",
+    "featured": false,
+    "images": ["assets/images/placeholder.svg"],
+    "specifications": {
+      "Grade": "6061",
+      "Thickness": "3mm",
+      "Width": "1000mm",
+      "Length": "2000mm",
+      "Tensile Strength": "310 MPa",
+      "Surface": "Mill finish"
+    },
+    "createdAt": "2024-01-05T11:30:00Z",
+    "updatedAt": "2024-01-05T11:30:00Z"
+  },
+  {
+    "id": "product-6",
+    "sellerId": "user-2",
+    "name": "Industrial Safety Equipment Package",
+    "description": "Complete safety equipment package for industrial workers. Includes helmets, gloves, safety glasses, and protective clothing.",
+    "category": "services",
+    "subcategory": "safety",
+    "status": "active",
+    "featured": true,
+    "images": ["assets/images/placeholder.svg"],
+    "specifications": {
+      "Helmet": "ANSI Z89.1 Type I",
+      "Gloves": "Cut resistant Level 5",
+      "Safety Glasses": "ANSI Z87.1",
+      "Vest": "ANSI/ISEA 107 Class 2",
+      "Size Range": "S-XXL"
+    },
+    "createdAt": "2024-01-18T13:20:00Z",
+    "updatedAt": "2024-01-18T13:20:00Z"
+  }
+]

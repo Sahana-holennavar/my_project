@@ -1,0 +1,26 @@
+{
+  "name": "b2b_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitramix/B2B_server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sitramix/B2B_server/issues"
+  },
+  "homepage": "https://github.com/sitramix/B2B_server#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

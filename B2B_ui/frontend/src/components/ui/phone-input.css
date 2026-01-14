@@ -1,0 +1,46 @@
+/* Phone Input Styles - Imported from react-phone-number-input */
+/* This file ensures proper CSS loading in Next.js */
+
+@import 'react-phone-number-input/style.css';
+
+/* Custom overrides to match app design */
+.phone-input-custom {
+  font-family: inherit;
+}
+
+.phone-input-custom .PhoneInputInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin-left: 8px;
+}
+
+.phone-input-custom .PhoneInputInput:focus {
+  outline: none;
+}
+
+.phone-input-custom .PhoneInputCountryIcon {
+  border-radius: 4px;
+}
+
+.phone-input-custom .PhoneInputCountrySelect {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin-right: 8px;
+}
+
+.phone-input-custom .PhoneInputCountrySelect:focus {
+  outline: none;
+}
+
+/* Dark mode support */
+.dark .phone-input-custom .PhoneInputCountryIcon {
+  filter: brightness(0.9);
+}
+

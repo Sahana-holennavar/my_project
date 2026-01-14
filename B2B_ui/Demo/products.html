@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Marketplace - My Products</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="dashboard.html">B2B Marketplace</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="marketplace.html" class="nav-link">Marketplace</a></li>
+                <li><a href="orders.html" class="nav-link">Orders</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li><a href="posts.html" class="nav-link">Posts</a></li>
+                <li><a href="#" class="nav-link" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>My Products</h1>
+                <p>Manage your product listings</p>
+                <a href="add-product.html" class="btn btn-primary">Add New Product</a>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="product-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-status="all">All Products</button>
+                    <button class="filter-tab" data-status="active">Active</button>
+                    <button class="filter-tab" data-status="inactive">Inactive</button>
+                    <button class="filter-tab" data-status="draft">Draft</button>
+                </div>
+                
+                <div class="product-search">
+                    <input type="text" id="product-search" class="form-input" placeholder="Search products...">
+                    <button class="btn btn-outline" id="search-products">Search</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-section">
+                <div class="products-grid" id="seller-products-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+                
+                <div class="no-products" id="no-products" style="display: none;">
+                    <div class="no-products-content">
+                        <div class="no-products-icon">📦</div>
+                        <h3>No products found</h3>
+                        <p>You haven't added any products yet.</p>
+                        <a href="add-product.html" class="btn btn-primary">Add Your First Product</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Actions Modal -->
+    <div class="modal" id="product-actions-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Product Actions</h2>
+                <button class="modal-close" id="close-product-actions">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="edit-product">Edit Product</button>
+                    <button class="btn btn-secondary" id="duplicate-product">Duplicate</button>
+                    <button class="btn btn-warning" id="toggle-status">Toggle Status</button>
+                    <button class="btn btn-danger" id="delete-product">Delete Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Product</h2>
+                <button class="modal-close" id="close-delete-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this product? This action cannot be undone.</p>
+                <div class="product-preview" id="delete-product-preview">
+                    <!-- Product preview will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-delete">Cancel</button>
+                <button class="btn btn-danger" id="confirm-delete">Delete Product</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

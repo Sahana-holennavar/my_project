@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Marketplace - Request for Quote</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="dashboard.html">B2B Marketplace</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="marketplace.html" class="nav-link">Marketplace</a></li>
+                <li><a href="orders.html" class="nav-link">Orders</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li><a href="posts.html" class="nav-link">Posts</a></li>
+                <li><a href="#" class="nav-link" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Request for Quote</h1>
+                <p>Send RFQs to multiple sellers for your requirements</p>
+            </div>
+
+            <div class="rfq-layout">
+                <!-- RFQ Form -->
+                <div class="rfq-form-section">
+                    <form class="rfq-form" id="rfq-form">
+                        <div class="form-section">
+                            <h2>Request for Quote</h2>
+                            
+                            <div class="form-group">
+                                <label for="rfq-email" class="form-label">Email Address *</label>
+                                <input type="email" id="rfq-email" name="email" class="form-input" required placeholder="your.email@company.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="rfq-pdf" class="form-label">Upload PDF Document *</label>
+                                <input type="file" id="rfq-pdf" name="pdf" class="form-input" accept=".pdf" required>
+                                <p class="form-help">Upload your detailed requirements document (PDF format only)</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit RFQ</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- RFQ History -->
+                <div class="rfq-history-section">
+                    <h2>Recent RFQs</h2>
+                    <div class="rfq-list" id="rfq-list">
+                        <!-- RFQ history will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/rfq.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Marketplace - Products</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="dashboard.html">B2B Marketplace</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="marketplace.html" class="nav-link active">Marketplace</a></li>
+                <li><a href="orders.html" class="nav-link">Orders</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li><a href="posts.html" class="nav-link">Posts</a></li>
+                <li><a href="#" class="nav-link" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Marketplace</h1>
+                <p>Discover products from verified sellers</p>
+            </div>
+
+            <!-- Enhanced Search Bar -->
+            <div class="search-container">
+                <div class="search-bar">
+                    <div class="search-input-group">
+                        <select id="search-category" class="search-category-select">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="machinery">Machinery</option>
+                            <option value="materials">Materials</option>
+                            <option value="services">Services</option>
+                        </select>
+                        <input type="text" id="search" class="search-input" placeholder="Search products, categories, or sellers...">
+                        <button class="search-btn" onclick="Marketplace.applyFilters()">
+                            <span>🔍</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="search-suggestions" class="search-suggestions"></div>
+                <div class="search-tags" id="search-tags">
+                    <span class="search-tag">Popular: <a href="#" onclick="Marketplace.searchByTag('conveyor')">Conveyor Belts</a></span>
+                    <span class="search-tag">Trending: <a href="#" onclick="Marketplace.searchByTag('led')">LED Lighting</a></span>
+                    <span class="search-tag">New: <a href="#" onclick="Marketplace.searchByTag('safety')">Safety Equipment</a></span>
+                </div>
+            </div>
+
+            <div class="marketplace-layout">
+                <!-- Enhanced Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>Filters</h3>
+                        <button class="btn btn-outline btn-sm" id="clear-filters">Clear All</button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="category" class="filter-label">Category</label>
+                        <select id="category" class="form-select">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="machinery">Machinery</option>
+                            <option value="materials">Materials</option>
+                            <option value="services">Services</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Price Range</label>
+                        <div class="price-range">
+                            <input type="number" id="minPrice" class="form-input" placeholder="Min" min="0">
+                            <span class="price-separator">to</span>
+                            <input type="number" id="maxPrice" class="form-input" placeholder="Max" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="rating" class="filter-label">Minimum Rating</label>
+                        <select id="rating" class="form-select">
+                            <option value="">Any Rating</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="3">3+ Stars</option>
+                            <option value="2">2+ Stars</option>
+                            <option value="1">1+ Stars</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="availability" class="filter-label">Availability</label>
+                        <select id="availability" class="form-select">
+                            <option value="">All Products</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sort" class="filter-label">Sort By</label>
+                        <select id="sort" class="form-select" onchange="Marketplace.sortProducts(this.value)">
+                            <option value="name">Name (A-Z)</option>
+                            <option value="price-low">Price (Low to High)</option>
+                            <option value="price-high">Price (High to Low)</option>
+                            <option value="newest">Newest First</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="popularity">Most Popular</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" id="apply-filters">Apply Filters</button>
+                    </div>
+                </aside>
+
+                <!-- Products Section -->
+                <section class="products-section">
+                    <div class="products-header">
+                        <div class="products-header-left">
+                            <h2>Products</h2>
+                            <div class="products-count">
+                                <span id="products-count">0 products found</span>
+                            </div>
+                        </div>
+                        <div class="products-header-right">
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid" onclick="Marketplace.setView('grid')">
+                                    <span>⊞</span>
+                                </button>
+                                <button class="view-btn" data-view="list" onclick="Marketplace.setView('list')">
+                                    <span>☰</span>
+                                </button>
+                            </div>
+                            <div class="sort-dropdown">
+                                <select id="sort-products" onchange="Marketplace.sortProducts(this.value)">
+                                    <option value="relevance">Sort by Relevance</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="newest">Newest First</option>
+                                    <option value="rating">Highest Rated</option>
+                                    <option value="popularity">Most Popular</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Products Banner -->
+                    <div class="featured-banner" id="featured-banner" style="display: none;">
+                        <h3>🔥 Featured Products</h3>
+                        <div class="featured-products" id="featured-products">
+                            <!-- Featured products will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="products-container">
+                        <div class="products-grid" id="products-grid">
+                            <!-- Products will be loaded here -->
+                        </div>
+                        
+                        <div class="products-list" id="products-list" style="display: none;">
+                            <!-- List view products will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="loading" id="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Loading products...</p>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination" style="display: none;">
+                        <button class="pagination-btn" id="prev-page" onclick="Marketplace.previousPage()">Previous</button>
+                        <div class="pagination-numbers" id="pagination-numbers"></div>
+                        <button class="pagination-btn" id="next-page" onclick="Marketplace.nextPage()">Next</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/marketplace.js"></script>
+</body>
+</html>
